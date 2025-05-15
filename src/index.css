@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --bg-main: #1B5E57;   /* Midoriya green */
+  --bg-card: #1D4D4F;   /* Darker green for cards */
+  --text-main: #E0F2F1; /* Light greenish-white */
+  --accent: #00C853;    /* Bright green */
+  --accent-dark: #00B249; /* Dark green for hover */
+  --error: #D32F2F;     /* Red for error messages */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Space Grotesk", sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+@layer utilities {
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .animate-blink {
+    animation: blink 0.8s step-end infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(250%);
+    }
+  }
+
+  .animate-loading-bar {
+    animation: loading 0.8s ease infinite;
+  }
+}
+
+/* Card Styling */
+.card {
+  background-color: var(--bg-card);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styles */
+.button-primary {
+  background-color: var(--accent);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-primary:hover {
+  background-color: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+.button-danger {
+  background-color: var(--error);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-danger:hover {
+  background-color: #c62828;
+  transform: translateY(-2px);
+}
+
+/* Form Input Styling */
+.input-field {
+  background-color: #1D4D4F;
+  color: var(--text-main);
+  padding: 0.5rem;
+  border: 1px solid #00B249;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--accent);
+}
